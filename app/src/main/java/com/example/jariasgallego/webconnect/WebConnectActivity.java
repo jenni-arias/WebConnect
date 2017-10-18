@@ -1,5 +1,6 @@
 package com.example.jariasgallego.webconnect;
 
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -30,5 +31,23 @@ public class WebConnectActivity extends AppCompatActivity {
         String cont = WebFetcher.getUrl(surl); // de la classe WebFetcher cridem la funció estàtica getURL
         content.setText(cont);
 
+        new WebFetcherTask().execute(surl);  // nova tasca
+    }
+
+
+    private class WebFetcherTask extends AsyncTask<String, Void, String> {
+        // la classe nova és un AsyncTask amb els paràmetres String, void i String.
+        // El AsyncTask demana uns methods (alt+Enter) i et posa el DoInBackground (en segon pla)
+
+        @Override
+        protected String doInBackground(String... surls) { // és una taula pero nosaltres nomès farem servir una
+            String cont = WebFetcher.getUrl(surls[0]);
+            return cont;
+        }
+
+        @Override
+        protected void onPostExecute(String cont) { // tornem al pla principal i actualitzem el TextView
+            content.setText(cont);
+        }
     }
 }

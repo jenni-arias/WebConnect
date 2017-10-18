@@ -45,7 +45,6 @@
         android:layout_toStartOf="@+id/btn_go"
         android:ems="10"
         android:hint="Type a URL"
-        android:inputType="textUri"
-        android:text="Name" />
+        android:inputType="textUri" />
 
 </RelativeLayout>
