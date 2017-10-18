@@ -37,7 +37,7 @@ public class WebConnectActivity extends AppCompatActivity {
 
     private class WebFetcherTask extends AsyncTask<String, Void, String> {
         // la classe nova és un AsyncTask amb els paràmetres String, void i String.
-        // El AsyncTask demana uns methods (alt+Enter) i et posa el DoInBackground (en segon pla)
+        // El AsyncTask demana uns methods (alt+Enter) i et possa el DoInBackground (en segon pla)
 
         @Override
         protected String doInBackground(String... surls) { // és una taula pero nosaltres nomès farem servir una

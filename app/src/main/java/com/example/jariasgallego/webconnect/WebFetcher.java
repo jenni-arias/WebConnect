@@ -14,20 +14,20 @@ import java.net.URL;
 class WebFetcher {
 
 
-        static String getUrl(String s_url) {   // funció que retorna un string
+        static String getUrl(String s_url) {                                          // funció que retorna un string
             // 1.Creem un objecte de tipus URL
 
             try {
                 URL url = new URL(s_url);
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection(); // el que es conecta
-                if (conn.getResponseCode() != HttpURLConnection.HTTP_OK) { // si la conexió és diferent 200 ( està bé) marxem
+                if (conn.getResponseCode() != HttpURLConnection.HTTP_OK) {          // si la conexió és diferent 200 ( està bé) marxem
                     return "<error: No HTTP_OK>";
                 }
                 // ara venen els bytes per la xarxa
-                InputStream in = conn.getInputStream(); // passa'm els bytes i els vaig enxtraient i els guardo a un array
+                InputStream in = conn.getInputStream();                             // passa'm els bytes i els vaig enxtraient i els guardo a un array
                 ByteArrayOutputStream out = new ByteArrayOutputStream();
-                coppyStream(in, out); // funció inventada (alt+Enter --> create method)
-                return out.toString(); // retorno la sortida amb els bytes ja copiats
+                coppyStream(in, out);                                               // funció inventada (alt+Enter --> create method)
+                return out.toString();                                               // retorno la sortida amb els bytes ja copiats
             } catch (IOException e) {
                 return "<error IOException>";
             }
@@ -40,7 +40,7 @@ class WebFetcher {
     {
         // Copiar els bits d'un Steam a un altre
         byte[] bytes = new byte[1024];
-        int nbytes = in.read(bytes); // llegim els bytes de l'entrada
+        int nbytes = in.read(bytes);        // llegim els bytes de l'entrada
         while (nbytes > 0) {
             out.write(bytes, 0, nbytes);
             nbytes = in.read(bytes);
