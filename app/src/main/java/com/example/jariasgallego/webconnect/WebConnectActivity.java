@@ -11,8 +11,8 @@ import static android.R.id.content;
 
 public class WebConnectActivity extends AppCompatActivity {
 
-    TextView content;
-    EditText edit_url;
+    private TextView content;
+    private EditText edit_url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +28,8 @@ public class WebConnectActivity extends AppCompatActivity {
 
         String surl = edit_url.getText().toString(); // el text que has posat al edittext
 
-        String cont = WebFetcher.getUrl(surl); // de la classe WebFetcher cridem la funció estàtica getURL
-        content.setText(cont);
+        //String cont = WebFetcher.getUrl(surl); // de la classe WebFetcher cridem la funció estàtica getURL
+        //content.setText(cont);
 
         new WebFetcherTask().execute(surl);  // nova tasca
     }

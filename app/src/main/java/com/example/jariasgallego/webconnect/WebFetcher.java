@@ -29,6 +29,7 @@ class WebFetcher {
                 coppyStream(in, out);                                               // funció inventada (alt+Enter --> create method)
                 return out.toString();                                               // retorno la sortida amb els bytes ja copiats
             } catch (IOException e) {
+                e.printStackTrace();
                 return "<error IOException>";
             }
         }
